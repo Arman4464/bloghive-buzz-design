@@ -24,11 +24,11 @@ export function FeaturedArticleCard({
   return (
     <div 
       className={cn(
-        "rounded-lg overflow-hidden bg-card border border-border shadow-sm hover-card-animation", 
+        "overflow-hidden bg-card border border-border shadow-sm hover-card-animation", 
         className
       )}
     >
-      <div className="relative h-64 md:h-80 w-full overflow-hidden">
+      <div className="relative h-64 md:h-80 w-full overflow-hidden hexagon">
         <img
           src={image}
           alt={title}

@@ -23,13 +23,13 @@ export function ArticleCard({
   return (
     <div 
       className={cn(
-        "rounded-lg overflow-hidden relative hover-card-animation bg-card border border-border shadow-sm",
+        "overflow-hidden relative hover-card-animation bg-card border border-border shadow-sm",
         "flex flex-col animate-fade-in", 
         className
       )}
       style={{ animationDelay: `${Math.random() * 0.5}s` }}
     >
-      <div className="relative h-40 w-full overflow-hidden">
+      <div className="relative h-40 w-full overflow-hidden hexagon">
         <img
           src={image}
           alt={title}

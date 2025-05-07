@@ -98,6 +98,7 @@
 }
 
 .honeycomb-pattern {
+  position: relative;
   background-color: #f5f5f5;
   opacity: 0.8;
   background-image: 
@@ -107,8 +108,8 @@
     linear-gradient(150deg, #f7dd80 12%, transparent 12.5%, transparent 87%, #f7dd80 87.5%, #f7dd80),
     linear-gradient(60deg, #f7dd8077 25%, transparent 25.5%, transparent 75%, #f7dd8077 75%, #f7dd8077),
     linear-gradient(60deg, #f7dd8077 25%, transparent 25.5%, transparent 75%, #f7dd8077 75%, #f7dd8077);
-  background-size: 30px 52px;
-  background-position: 0 0, 0 0, 15px 26px, 15px 26px, 0 0, 15px 26px;
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
 
 .dark .honeycomb-pattern {
@@ -120,8 +121,8 @@
     linear-gradient(150deg, #664d00 12%, transparent 12.5%, transparent 87%, #664d00 87.5%, #664d00),
     linear-gradient(60deg, #664d0077 25%, transparent 25.5%, transparent 75%, #664d0077 75%, #664d0077),
     linear-gradient(60deg, #664d0077 25%, transparent 25.5%, transparent 75%, #664d0077 75%, #664d0077);
-  background-size: 30px 52px;
-  background-position: 0 0, 0 0, 15px 26px, 15px 26px, 0 0, 15px 26px;
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
 
 /* Add fade-in animation */
