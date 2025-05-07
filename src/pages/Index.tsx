@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FeaturedArticleCard } from "@/components/FeaturedArticleCard";
 import { ArticleCard } from "@/components/ArticleCard";
+import { BookOpen, Star, Bookmark, MessageSquare, Search } from "lucide-react";
 
 // Sample data
 const featuredArticle = {
@@ -23,6 +24,7 @@ const articles = [
     author: "David Thompson",
     date: "May 4, 2025",
     image: "https://images.unsplash.com/photo-1576800870530-6d010bc0628d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+    readTime: "4 min"
   },
   {
     title: "Productivity Techniques That Actually Work",
@@ -31,6 +33,7 @@ const articles = [
     author: "Sarah Johnson",
     date: "May 3, 2025",
     image: "https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    readTime: "6 min"
   },
   {
     title: "Building Sustainable Communities",
@@ -39,6 +42,7 @@ const articles = [
     author: "Michael Rodriguez",
     date: "May 2, 2025",
     image: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    readTime: "7 min"
   },
   {
     title: "The Art of Mindful Cooking",
@@ -47,6 +51,7 @@ const articles = [
     author: "Emily Wong",
     date: "May 1, 2025",
     image: "https://images.unsplash.com/photo-1556911073-a517e752729c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    readTime: "5 min"
   },
   {
     title: "Emerging Technologies in Healthcare",
@@ -55,6 +60,7 @@ const articles = [
     author: "Dr. Robert Kim",
     date: "April 30, 2025",
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    readTime: "9 min"
   },
   {
     title: "Financial Planning for Young Professionals",
@@ -63,6 +69,7 @@ const articles = [
     author: "Lisa Martinez",
     date: "April 29, 2025",
     image: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    readTime: "8 min"
   },
 ];
 
@@ -74,6 +81,15 @@ const categories = [
   { name: "Wellness", count: 21, color: "bg-honey-300" },
   { name: "Health", count: 16, color: "bg-amber-300" },
   { name: "Finance", count: 9, color: "bg-honey-600" },
+];
+
+const trendingTopics = [
+  "Artificial Intelligence",
+  "Sustainability",
+  "Remote Work",
+  "Financial Freedom",
+  "Mental Health",
+  "Tech Ethics"
 ];
 
 export default function Index() {
@@ -117,6 +133,28 @@ export default function Index() {
               Featured Article
             </h2>
             <FeaturedArticleCard {...featuredArticle} />
+          </div>
+        </section>
+
+        {/* Trending Topics */}
+        <section className="py-8 px-4 bg-muted/10">
+          <div className="container mx-auto">
+            <h2 className="text-2xl font-bold mb-5 flex items-center">
+              <span className="h-2 w-6 bg-honey-500 rounded-full mr-3"></span>
+              Trending Topics
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {trendingTopics.map((topic, index) => (
+                <a 
+                  key={index} 
+                  href={`/topics/${topic.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="px-4 py-2 bg-background rounded-full border border-border hover:border-honey-400 transition-colors flex items-center"
+                >
+                  <Star className="h-3 w-3 mr-2 text-honey-500" />
+                  <span className="text-sm font-medium">{topic}</span>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
         
@@ -170,6 +208,43 @@ export default function Index() {
           </div>
         </section>
         
+        {/* Featured Writers */}
+        <section className="py-12 px-4 bg-muted/20">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-bold mb-8 flex items-center">
+              <span className="h-2 w-8 bg-honey-500 rounded-full mr-3"></span>
+              Featured Writers
+            </h2>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {["Jessica Chen", "David Thompson", "Sarah Johnson", "Michael Rodriguez"].map((writer, index) => (
+                <div key={index} className="flex flex-col items-center p-6 bg-card border border-border rounded-lg hover-card-animation">
+                  <div className="h-20 w-20 rounded-full bg-amber-200 flex items-center justify-center mb-4 border-2 border-honey-500/40">
+                    <span className="text-2xl font-bold">{writer.charAt(0)}</span>
+                  </div>
+                  <h3 className="font-bold text-lg mb-1">{writer}</h3>
+                  <p className="text-sm text-muted-foreground mb-3 text-center">
+                    {index === 0 ? "Technology Expert" : 
+                     index === 1 ? "Nature Writer" : 
+                     index === 2 ? "Productivity Coach" : 
+                     "Environmental Scientist"}
+                  </p>
+                  <div className="flex space-x-3 text-muted-foreground">
+                    <div className="flex items-center text-xs">
+                      <BookOpen className="h-3 w-3 mr-1" />
+                      <span>{12 + index} articles</span>
+                    </div>
+                    <div className="flex items-center text-xs">
+                      <Bookmark className="h-3 w-3 mr-1" />
+                      <span>{120 + index * 50} followers</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
         {/* Newsletter Section */}
         <section className="py-16 px-4 bg-gradient-to-b from-honey-50 to-honey-100 dark:from-amber-900/30 dark:to-amber-800/20">
           <div className="container mx-auto max-w-4xl text-center">
@@ -188,6 +263,29 @@ export default function Index() {
                 Subscribe
               </Button>
             </form>
+          </div>
+        </section>
+        
+        {/* Search Section */}
+        <section className="py-12 px-4">
+          <div className="container mx-auto max-w-2xl">
+            <div className="p-6 bg-card border border-border rounded-lg text-center">
+              <h2 className="text-2xl font-bold mb-4">Find What You're Looking For</h2>
+              <p className="text-muted-foreground mb-6">
+                Search our entire collection of articles, guides, and resources.
+              </p>
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5" />
+                <input
+                  type="text"
+                  placeholder="Search articles, topics, or authors..."
+                  className="w-full px-10 py-3 rounded-lg bg-background border border-input focus:outline-none focus:ring-2 focus:ring-honey-500"
+                />
+                <Button className="absolute right-1 top-1 bg-honey-500 hover:bg-honey-600 text-foreground h-8">
+                  Search
+                </Button>
+              </div>
+            </div>
           </div>
         </section>
       </main>

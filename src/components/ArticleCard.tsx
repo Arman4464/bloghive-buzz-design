@@ -1,5 +1,6 @@
 
 import { cn } from "@/lib/utils";
+import { Clock, BookOpen } from "lucide-react";
 
 interface ArticleCardProps {
   title: string;
@@ -9,6 +10,7 @@ interface ArticleCardProps {
   date: string;
   image: string;
   className?: string;
+  readTime?: string;
 }
 
 export function ArticleCard({
@@ -19,6 +21,7 @@ export function ArticleCard({
   date,
   image,
   className,
+  readTime = "5 min",
 }: ArticleCardProps) {
   return (
     <div 
@@ -46,9 +49,22 @@ export function ArticleCard({
         <h3 className="text-lg font-bold mb-2 line-clamp-2">{title}</h3>
         <p className="text-muted-foreground text-sm mb-3 line-clamp-3 flex-1">{excerpt}</p>
         
-        <div className="mt-auto">
-          <p className="font-medium text-sm">{author}</p>
-          <p className="text-xs text-muted-foreground">{date}</p>
+        <div className="flex items-center text-xs text-muted-foreground mb-3">
+          <Clock className="h-3 w-3 mr-1" />
+          <span>{readTime} read</span>
+          <span className="mx-2">•</span>
+          <BookOpen className="h-3 w-3 mr-1" />
+          <span>124 views</span>
+        </div>
+        
+        <div className="mt-auto flex items-center justify-between">
+          <div>
+            <p className="font-medium text-sm">{author}</p>
+            <p className="text-xs text-muted-foreground">{date}</p>
+          </div>
+          <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
+            <span className="text-xs font-medium">{author.charAt(0)}</span>
+          </div>
         </div>
       </div>
     </div>

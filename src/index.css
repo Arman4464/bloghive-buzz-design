@@ -140,3 +140,48 @@
 .animate-fade-in {
   animation: fade-in 0.5s ease-out forwards;
 }
+
+/* Add floating animation for bees and decorative elements */
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-5px) translateX(3px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Add slow spin animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+/* Add slow pulse animation */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
