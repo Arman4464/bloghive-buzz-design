@@ -1,5 +1,6 @@
 
 import { cn } from "@/lib/utils";
+import { Hexagon } from "lucide-react";
 
 interface LogoProps {
   className?: string;
@@ -10,14 +11,23 @@ export function Logo({ className, withText = true }: LogoProps) {
   return (
     <div className={cn("flex items-center gap-2", className)}>
       <div className="relative flex items-center justify-center">
-        {/* Hexagon base */}
-        <div className="h-10 w-10 hexagon bg-gradient-to-br from-honey-400 to-amber-500 shadow-md flex items-center justify-center">
-          {/* Inner honeycomb pattern */}
-          <div className="h-7 w-7 hexagon bg-honey-300/50 dark:bg-honey-300/80 flex items-center justify-center">
-            {/* "B" letter */}
-            <span className="text-amber-900 dark:text-amber-900 font-bold">B</span>
+        {/* Honeycomb structure */}
+        <div className="relative flex">
+          {/* First hexagon with "B" */}
+          <div className="h-10 w-10 hexagon bg-gradient-to-br from-honey-300 to-amber-400 shadow-md flex items-center justify-center border-2 border-honey-500/40">
+            <span className="text-amber-900 dark:text-amber-900 font-bold text-sm">B</span>
           </div>
+          
+          {/* Second hexagon with "H" - slightly offset */}
+          <div className="h-10 w-10 hexagon bg-gradient-to-br from-amber-400 to-honey-300 shadow-md flex items-center justify-center -ml-3 border-2 border-honey-500/40">
+            <span className="text-amber-900 dark:text-amber-900 font-bold text-sm">H</span>
+          </div>
+          
+          {/* Decorative smaller honeycomb cells */}
+          <div className="absolute -top-2 -right-1 h-5 w-5 hexagon bg-honey-200 border border-honey-400/30 opacity-80"></div>
+          <div className="absolute bottom-0 -left-1 h-4 w-4 hexagon bg-honey-200 border border-honey-400/30 opacity-80"></div>
         </div>
+        
         {/* Animated bees */}
         <div className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-amber-800 animate-float" />
         <div className="absolute bottom-0 -left-1 h-2 w-2 rounded-full bg-amber-800 animate-float" style={{ animationDelay: "1s" }} />
