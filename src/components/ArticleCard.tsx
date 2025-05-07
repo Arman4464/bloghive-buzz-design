@@ -23,8 +23,8 @@ export function ArticleCard({
   return (
     <div 
       className={cn(
-        "hexagon overflow-hidden relative hover-card-animation bg-card border border-border shadow-sm",
-        "flex flex-col animate-hexagon-appear", 
+        "rounded-lg overflow-hidden relative hover-card-animation bg-card border border-border shadow-sm",
+        "flex flex-col animate-fade-in", 
         className
       )}
       style={{ animationDelay: `${Math.random() * 0.5}s` }}
