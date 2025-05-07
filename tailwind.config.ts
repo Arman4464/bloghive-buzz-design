@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,30 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				honey: {
+					50: "#FFF8E1",
+					100: "#FFECB3",
+					200: "#FFE082",
+					300: "#FFD54F",
+					400: "#FFCA28",
+					500: "#FFC107", // Main honey color
+					600: "#FFB300",
+					700: "#FFA000",
+					800: "#FF8F00",
+					900: "#FF6F00"
+				},
+				amber: {
+					50: "#FFF3E0",
+					100: "#FFE0B2",
+					200: "#FFCC80",
+					300: "#FFB74D",
+					400: "#FFA726",
+					500: "#FF9800", // Main amber color
+					600: "#FB8C00",
+					700: "#F57C00",
+					800: "#EF6C00",
+					900: "#E65100"
 				}
 			},
 			borderRadius: {
@@ -84,11 +109,31 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'hexagon-appear': {
+					'0%': { transform: 'scale(0)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'spin-slow': 'spin-slow 15s linear infinite',
+				'hexagon-appear': 'hexagon-appear 0.5s ease-out forwards'
 			}
 		}
 	},
