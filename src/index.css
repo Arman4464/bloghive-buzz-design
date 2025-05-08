@@ -185,3 +185,81 @@
 .animate-pulse-slow {
   animation: pulse-slow 4s ease-in-out infinite;
 }
+
+/* Bee-themed animations */
+@keyframes buzz {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-1px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(1px);
+  }
+}
+
+.buzz-animation {
+  animation: buzz 0.3s ease-in-out;
+}
+
+.buzz-on-hover {
+  transition: all 0.2s ease;
+}
+
+.buzz-on-hover:hover {
+  animation: buzz 0.3s ease-in-out;
+}
+
+/* Honey glow effect */
+.honey-glow-effect {
+  box-shadow: 0 0 5px rgba(247, 221, 128, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.honey-glow-hover {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.honey-glow-hover:hover {
+  box-shadow: 0 0 15px rgba(247, 221, 128, 0.7);
+}
+
+/* Floating bee elements */
+.bee-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Input field animations */
+.input-honey-glow {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-honey-glow:focus {
+  border-color: hsl(45, 100%, 50%) !important;
+  box-shadow: 0 0 0 2px rgba(247, 221, 128, 0.3) !important;
+}
+
+/* Hexagon card styling */
+.hexagon-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.hexagon-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  pointer-events: none;
+}
+
+.hexagon-card:hover::before {
+  border-color: hsl(45, 100%, 50%, 0.5);
+  box-shadow: 0 0 15px rgba(247, 221, 128, 0.4);
+}

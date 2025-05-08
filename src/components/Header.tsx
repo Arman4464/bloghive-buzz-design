@@ -18,7 +18,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="sticky top-0 z-50 w-full bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
         <Logo />
         
@@ -29,16 +29,22 @@ export function Header() {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-foreground/80 hover:text-honey-600 dark:hover:text-honey-400 transition-colors font-medium"
+                className="text-foreground/80 hover:text-honey-600 dark:hover:text-honey-400 transition-colors font-medium relative nav-link-hover"
               >
                 {item.name}
               </Link>
             ))}
           </div>
           
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-3">
+            <Button 
+              variant="outline" 
+              className="hidden lg:flex border-honey-400 hover:border-honey-500"
+            >
+              Search
+            </Button>
             <ThemeToggle />
-            <Button className="bg-honey-500 hover:bg-honey-600 text-foreground font-medium">
+            <Button className="bg-honey-500 hover:bg-honey-600 text-foreground font-medium honey-glow-hover">
               Subscribe
             </Button>
           </div>
@@ -51,6 +57,7 @@ export function Header() {
             variant="ghost" 
             size="icon" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             <Menu className="h-5 w-5" />
           </Button>
@@ -71,9 +78,19 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <Button className="w-full bg-honey-500 hover:bg-honey-600 text-foreground font-medium mt-3">
-              Subscribe
-            </Button>
+            <div className="flex items-center pt-2">
+              <Button 
+                variant="outline" 
+                className="w-full mr-2 border-honey-400 hover:border-honey-500"
+              >
+                Search
+              </Button>
+              <Button 
+                className="w-full bg-honey-500 hover:bg-honey-600 text-foreground honey-glow-hover"
+              >
+                Subscribe
+              </Button>
+            </div>
           </div>
         </div>
       )}
